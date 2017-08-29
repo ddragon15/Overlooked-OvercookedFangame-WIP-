@@ -34,7 +34,6 @@ if __name__ == "__main__":
 
     # Functions
     def HoldItem(selectItem):
-        check = True
         if keyPressSpace:
             if not player.CheckHolding():
                 # Check if Item is in range
@@ -44,12 +43,13 @@ if __name__ == "__main__":
                         selectItem = i
                         player.holding_item = True
                         i.isHold = True
-                        check = True
-                for t in magic.MTiles:
-                    if(t.checkCollision(player.GetInfront(True)) and dir("spaceCheck") == True):
-                        if t.isOccupied:
-                            t.spaceCheck()
-                            check = False
+                        return selectItem
+                # TODO Brocken Code - spaceCheck for cuttingBoard
+                # for t in magic.MTiles:
+                #     if(t.checkCollision(player.GetInfront(True)) and dir("spaceCheck") == True):
+                #         if t.isOccupied:
+                #             t.spaceCheck()
+                #             return selectItem
 
             elif(player.CheckHolding()):
                 # Check for Crate
@@ -61,13 +61,13 @@ if __name__ == "__main__":
                             selectItem.y = t.y+24
                             player.holding_item = False
                             selectItem.isHold = False
-                            check = False
+                            return None
                         else:
-                            check = True
-                # Check for Item
-                for i in magic.MItems:
-                    if(i.checkCollision(player.GetInfront(True)) and not i.isHold):
-                        check = True
+                            return selectItem
+                # # Check for Item
+                # for i in magic.MItems:
+                #     if(i.checkCollision(player.GetInfront(True)) and not i.isHold):
+                #         return None
                 # drop it on the ground
                 pos = player.GetInfront(True)
                 selectItem.x = pos[0]
@@ -75,8 +75,6 @@ if __name__ == "__main__":
                 player.holding_item = False
                 selectItem.isHold = False
             # Bilanz
-            if check == True:
-                return selectItem
             return None
 
     # 2 - Load images
