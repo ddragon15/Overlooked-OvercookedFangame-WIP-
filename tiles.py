@@ -41,7 +41,7 @@ class All():
         # go through items
         for i in magic.MItems:
             # if item collides with self storage
-            if(All.checkCollision(self, i.pos)):
+            if(All.checkCollision(self, i.pos) and i != magic.player.itemHolding):
                 # object is there
                 if not inspect.isclass(self.itemHolding):
                     self.itemHolding = i
@@ -84,45 +84,33 @@ class Storage(All):
         All.Draw(self)
         # If empty create new Item
         if not All.itemCheck(self):
-            print("here")
             magic.MItems.append(self.itemHolding(self.pos[0],self.pos[1]))
 
         All.Debug(self)
 
 class cuttingBoard(All):
-    itemInProcess = False
     process = 0
 
-    def itemHandler(self):
-        # Check if item is on Surface
-        pos = [0,0]
-        checker = False
-        # go through items
-        for i in magic.MItems:
-            # if item collides with self
-            pos[0] = i.pos[0]
-            pos[1] = i.pos[1]
-            if(All.checkCollision(self, pos) and i.processable):
-                # object is there
-                checker = True
-                i.isOccupied = True
-                self.itemInProcess = i
-                break
-        if self.itemInProcess != None:
+    def itemProcessor(self):
+        if self.itemHolding != None and self.itemHolding.processable: #and not magic.player.checkHolding():
+            print("Debug1")
+            self.itemHolding.isOccupied = True
+            self.placeCheck = False
             if self.process < 30:
                 # Draw progress bar
                 magic.mapScreen.blit(All.healthbar, (self.pos[0],self.pos[1]-5))
                 for health1 in range(self.process*2):
                     magic.mapScreen.blit(All.health, (health1+self.pos[0]+1,self.pos[1]-4))
+                return
             if self.process >= 30:
-                self.itemInProcess.isOccupied = False
-                self.itemInProcess.changeSkin()
-                self.itemInProcess.processable = False
+                self.itemHolding.isOccupied = False
+                self.itemHolding.changeSkin()
+                self.itemHolding.processable = False
+                self.itemHolding = None
+                self.process = 0
+                self.placeCheck = True
+        return
 
-        if not checker:
-            self.process = 0
-            self.itemInProcess = None
-            return
 
     spaceCheck = lambda self: self.process + 1
 
@@ -135,5 +123,6 @@ class cuttingBoard(All):
 
     def Update(self):
         All.Draw(self)
-        self.itemHandler()
+        if All.itemCheck(self):
+                self.itemProcessor()
         All.Debug(self)

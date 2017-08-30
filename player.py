@@ -11,7 +11,8 @@ class Player(pygame.sprite.Sprite):
     rotation = 0;
     playerrot = 0;
     infront = (0,0)
-    holding_item = None
+
+    itemHolding = None
 
     halteentfernung = 45
 
@@ -89,20 +90,20 @@ class Player(pygame.sprite.Sprite):
     def Update(self, GTiles):
         self.tiles = GTiles;
         self.Move()
-        if self.holding_item is not None:
-            self.holding_item.setPos(self.getInfront())
+        if self.itemHolding is not None:
+            self.itemHolding.setPos(self.getInfront())
         self.Draw()
         pos = self.getInfront()
         # pygame.draw.rect(magic.mapScreen, (20,50,231), pygame.Rect((pos[0],pos[1]),(20,20)))
 
     def ItemHandler(self):
-        if not self.CheckHolding(): # if holding nothing
+        if not self.checkHolding(): # if holding nothing
             # Check if Item is in range
 
             for i in magic.MItems:
                 if(i.checkCollision(self.getInfront()) and not i.isOccupied):
                     # Get that Item
-                    self.holding_item = i
+                    self.itemHolding = i
                     i.isHold = True
                     return
             # TODO Brocken Code - spaceCheck for cuttingBoard
@@ -111,16 +112,16 @@ class Player(pygame.sprite.Sprite):
                         t.process += 1
                         return
 
-        elif(self.CheckHolding()):
+        elif(self.checkHolding()):
             # Check for Crate
             for t in magic.MTiles:
                 if(t.checkCollision(self.getInfront())):
                     if(t.placeCheck):
                         # Place the item
-                        self.holding_item.pos = [t.pos[0]+24,t.pos[1]+24]
-                        t.itemHolding = self.holding_item
-                        self.holding_item.isHold = False
-                        self.holding_item = None
+                        self.itemHolding.pos = [t.pos[0]+24,t.pos[1]+24]
+                        t.itemHolding = self.itemHolding
+                        self.itemHolding.isHold = False
+                        self.itemHolding = None
                         return
                     else:
                         return
@@ -129,17 +130,17 @@ class Player(pygame.sprite.Sprite):
             #     if(i.checkCollision(player.getInfront()) and not i.isHold):
             #         return None
             # drop it on the ground
-            self.holding_item.pos = self.getInfront()
-            self.holding_item.isHold = False
-            self.holding_item = None
+            self.itemHolding.pos = self.getInfront()
+            self.itemHolding.isHold = False
+            self.itemHolding = None
         # Bilanz
         return
 
-    def CheckHolding(self):
-        if self.holding_item:
+    def checkHolding(self):
+        if self.itemHolding:
             return True
         else:
             return False
 
     def setHolding(self, holder):
-        self.holding_item = holder
+        self.itemHolding = holder

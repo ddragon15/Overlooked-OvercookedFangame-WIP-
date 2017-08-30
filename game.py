@@ -21,8 +21,7 @@ if __name__ == "__main__":
     pygame.init()
 
     # Initiate Player
-    player = player.Player()
-    magic.player = player
+    magic.player = player.Player()
 
     time = pygame.time.Clock()
     keyPressSpace = False
@@ -61,7 +60,7 @@ if __name__ == "__main__":
             o.Update()
 
         # 6.1 - Set player position and rotation
-        player.Update(magic.MTiles)
+        magic.player.Update(magic.MTiles)
 
         # 6.4 - Draw DebugInfo
         font = pygame.font.Font(None, 24)
@@ -100,7 +99,7 @@ if __name__ == "__main__":
                 if event.key == K_d:
                     magic.keyPress1 -= 8
                 if event.key == K_SPACE:
-                    player.ItemHandler()
+                    magic.player.ItemHandler()
                     keyPressSpace = False
 
             # if event.type==pygame.MOUSEBUTTONDOWN:
