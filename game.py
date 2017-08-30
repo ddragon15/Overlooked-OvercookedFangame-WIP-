@@ -39,10 +39,12 @@ if __name__ == "__main__":
     magic.MTiles.append(tiles.Crate(128,125))
     magic.MTiles.append(tiles.Crate(64*5,125))
     magic.MTiles.append(tiles.Storage(64*2,125+64,items.Onion))
+    magic.MTiles.append(tiles.Storage(64*4,125+64,items.Tomato))
     magic.MTiles.append(tiles.cuttingBoard(64,125+64))
 
+    magic.MItems.append(items.Plate(64,125))
     magic.MItems.append(items.Onion(128,125))
-    magic.MItems.append(items.Onion(64*5,125))
+    magic.MItems.append(items.Tomato(64*5,125))
 
 
 
@@ -99,7 +101,7 @@ if __name__ == "__main__":
                 if event.key == K_d:
                     magic.keyPress1 -= 8
                 if event.key == K_SPACE:
-                    magic.player.ItemHandler()
+                    magic.player.Grapper()
                     keyPressSpace = False
 
             # if event.type==pygame.MOUSEBUTTONDOWN:

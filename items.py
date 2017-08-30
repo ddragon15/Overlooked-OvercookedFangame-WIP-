@@ -21,9 +21,8 @@ class All():
 
     def checkCollision(self, pos):
         boxrect = pygame.Rect((pos[0],pos[1]),(20,20))
-        myRect = pygame.Rect((self.pos[0]-8,self.pos[1]-8),(34,34))
-        # self.DebugV[0] = self.pos[0]-8
-        # self.DebugV[1] = self.y-8
+        myRect = pygame.Rect((self.pos[0]-16,self.pos[1]-16),(34,34))
+        # self.DebugV = myRect
         # self.DebugBool = True
         boxrect.topleft = [pos[0],pos[1]]
         if myRect.colliderect(boxrect):
@@ -33,10 +32,13 @@ class All():
 
     def Debug(self):
         if self.DebugBool:
-            pygame.draw.rect(magic.mapScreen, (50,250,131), pygame.Rect((self.DebugV[0],self.DebugV[1]),(34,34)))
+            pygame.draw.rect(magic.mapScreen, (50,250,131), self.DebugV)
+        # self.DebugV[0] = self.pos[0]-8
+        # self.DebugV[1] = self.y-8
+        # self.DebugBool = True
 
     def setPos(self, pos):
-        self.pos = pos
+        self.pos = [pos[0]+8,pos[1]+8]
 
 class Onion(All):
     tag = "onion"
@@ -46,10 +48,10 @@ class Onion(All):
         self.image = pygame.image.load(self.skin)
         # w,h = self.image.get_size()
         # self.image = pygame.transform.scale(self.image, (int(w),int(h)))
-        # self.rect.topleft = [x,y]
         self.rect = self.image.get_rect()
-        self.pos = [x+24,y+24]
-        self.rot = random.randint(0, 360)*1
+        self.rect.topleft = [x,y]
+        self.pos = [x+32,y+32]
+        self.rot = 0 #random.randint(0, 360)*1
 
     def Update(self):
         All.Draw(self)
@@ -59,3 +61,42 @@ class Onion(All):
         if self.skin is not "resource/image/onionS.png":
             self.skin = "resources/images/onionS.png"
             self.image = pygame.image.load(self.skin)
+
+class Tomato(All):
+    tag = "tomato"
+
+    def __init__(self, x, y):
+        self.skin = "resources/images/tomato.png"
+        self.image = pygame.image.load(self.skin)
+        # w,h = self.image.get_size()
+        # self.image = pygame.transform.scale(self.image, (int(w),int(h)))
+        self.rect = self.image.get_rect()
+        self.rect.topleft = [x,y]
+        self.pos = [x+32,y+32]
+        self.rot = 0 #random.randint(0, 360)*1
+
+    def Update(self):
+        All.Draw(self)
+        All.Debug(self)
+
+    def changeSkin(self):
+        if self.skin is not "resource/image/tomatoS.png":
+            self.skin = "resources/images/tomatoS.png"
+            self.image = pygame.image.load(self.skin)
+
+
+class Plate(All):
+    processable = False
+    # TODO make states for different Foods
+
+    def __init__(self, x, y):
+        self.skin = "resources/images/plate.png"
+        self.image = pygame.image.load(self.skin)
+        self.rect = self.image.get_rect()
+        self.rect.topleft = [x,y]
+        self.pos = [x+32,y+32]
+        self.rot = 0
+
+    def Update(self):
+        All.Draw(self)
+        All.Debug(self)

@@ -15,6 +15,7 @@ class All():
 
     placeCheck = True
     itemHolding = None
+    isStorage = False
 
     healthbar = pygame.image.load("resources/images/healthbar.jpg")
     health = pygame.image.load("resources/images/health.jpg")
@@ -67,10 +68,7 @@ class Crate(All):
         All.Debug(self)
 
 class Storage(All):
-    #
-    # def ItemChoose(self):
-    #     #check wich item
-    #     if(self.item == "Onion"):
+    isStorage = True
 
     def __init__(self, x, y, item):
         #super().__init__()
@@ -85,7 +83,6 @@ class Storage(All):
         # If empty create new Item
         if not All.itemCheck(self):
             magic.MItems.append(self.itemHolding(self.pos[0],self.pos[1]))
-
         All.Debug(self)
 
 class cuttingBoard(All):
@@ -93,7 +90,6 @@ class cuttingBoard(All):
 
     def itemProcessor(self):
         if self.itemHolding != None and self.itemHolding.processable: #and not magic.player.checkHolding():
-            print("Debug1")
             self.itemHolding.isOccupied = True
             self.placeCheck = False
             if self.process < 30:

@@ -19,13 +19,14 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         #super().__init__()
         self.image = pygame.image.load("resources/images/cook1.png")
-        self.rect = pygame.Rect((self.playerpos[0]-128,self.playerpos[1]-128),(64,64))
+        self.rect = pygame.Rect((self.playerpos[0]-16,self.playerpos[1]-16),(40,40))
 
 
     def Draw(self):
         playerrot = pygame.transform.rotate(self.image , self.rotation)
         playerpos1 = (self.playerpos[0]-playerrot.get_rect().width/2, self.playerpos[1]-playerrot.get_rect().height/2)
         magic.mapScreen.blit(playerrot, playerpos1)
+        # pygame.draw.rect(magic.mapScreen, (11,31, 131), self.rect)
 
     def Collision(self, tiles):
         for o in tiles:
@@ -78,14 +79,14 @@ class Player(pygame.sprite.Sprite):
             self.rotation = 220
             self.infront = (0.75,0.75)
 
-        self.rect.topleft = (x-32, y-32) #Collision Rectangle
+        self.rect.topleft = (x-20, y-16) #Collision Rectangle
         if not self.Collision(self.tiles):
             self.playerpos = [x,y]
 
     def getInfront(self):
-        # pygame.draw.rect(magic.mapScreen, (11,31, 131), pygame.Rect((self.playerpos[0] + (self.infront[0]*self.halteentfernung),self.playerpos[1] + (self.infront[1]*self.halteentfernung)),(15,15)))
-            pos = (self.playerpos[0]-8 + (self.infront[0]*self.halteentfernung),self.playerpos[1]-8 + (self.infront[1]*self.halteentfernung))
-            return pos
+        pos = (self.playerpos[0]-8 + (self.infront[0]*self.halteentfernung),self.playerpos[1]-8 + (self.infront[1]*self.halteentfernung))
+        # pygame.draw.rect(magic.mapScreen, (11,31, 131), pygame.Rect(pos,(15,15)))
+        return pos
 
     def Update(self, GTiles):
         self.tiles = GTiles;
@@ -96,40 +97,38 @@ class Player(pygame.sprite.Sprite):
         pos = self.getInfront()
         # pygame.draw.rect(magic.mapScreen, (20,50,231), pygame.Rect((pos[0],pos[1]),(20,20)))
 
-    def ItemHandler(self):
+    def Grapper(self):
+        # TODO add plate decition
+
         if not self.checkHolding(): # if holding nothing
             # Check if Item is in range
-
             for i in magic.MItems:
-                if(i.checkCollision(self.getInfront()) and not i.isOccupied):
+                if i.checkCollision(self.getInfront()) and not i.isOccupied:
                     # Get that Item
                     self.itemHolding = i
                     i.isHold = True
-                    return
-            # TODO Brocken Code - spaceCheck for cuttingBoard
+                    break
             for t in magic.MTiles:
-                if(t.checkCollision(self.getInfront()) and hasattr(t, "process") and t.itemHolding != None):
-                        t.process += 1
-                        return
+                if t.checkCollision(i.pos) and i.isHold and not t.isStorage:
+                    t.itemHolding = None
+                    return
+                if t.checkCollision(self.getInfront()) and hasattr(t, "process") and t.itemHolding != None:
+                    t.process += 1
+                    return
 
-        elif(self.checkHolding()):
+        elif(self.checkHolding()): # if holding something
             # Check for Crate
             for t in magic.MTiles:
-                if(t.checkCollision(self.getInfront())):
-                    if(t.placeCheck):
+                if t.checkCollision(self.getInfront()):
+                    if t.placeCheck and t.itemHolding == None:
                         # Place the item
-                        self.itemHolding.pos = [t.pos[0]+24,t.pos[1]+24]
+                        self.itemHolding.pos = [t.pos[0]+32,t.pos[1]+32]
                         t.itemHolding = self.itemHolding
                         self.itemHolding.isHold = False
                         self.itemHolding = None
                         return
                     else:
                         return
-            # # Check for Item
-            # for i in magic.MItems:
-            #     if(i.checkCollision(player.getInfront()) and not i.isHold):
-            #         return None
-            # drop it on the ground
             self.itemHolding.pos = self.getInfront()
             self.itemHolding.isHold = False
             self.itemHolding = None
