@@ -16,7 +16,7 @@ class Player(pygame.sprite.Sprite):
     halteentfernung = 45
 
     def __init__(self):
-        super().__init__()
+        #super().__init__()
         self.image = pygame.image.load("resources/images/cook1.png")
         self.rect = pygame.Rect((self.playerpos[0]-128,self.playerpos[1]-128),(64,64))
 
@@ -29,7 +29,7 @@ class Player(pygame.sprite.Sprite):
     def Collision(self, tiles):
         for o in tiles:
             boxrect = pygame.Rect(o.image.get_rect())
-            boxrect.topleft = [o.x,o.y]
+            boxrect.topleft = [o.pos[0],o.pos[1]]
             if self.rect.colliderect(boxrect):
                 return True
         return False

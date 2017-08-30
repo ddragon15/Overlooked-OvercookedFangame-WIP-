@@ -12,7 +12,7 @@ import tiles
 import items
 #import sprites
 
-
+# TODO collision checking on crates doesn't snap
 
 
 if __name__ == "__main__":
@@ -57,8 +57,8 @@ if __name__ == "__main__":
                     if(t.checkCollision(player.GetInfront(True))):
                         if(t.placeCheck):
                             # Place the item
-                            selectItem.x = t.x+24
-                            selectItem.y = t.y+24
+                            selectItem.x = t.pos[0]+24
+                            selectItem.y = t.pos[1]+24
                             player.holding_item = False
                             selectItem.isHold = False
                             return None

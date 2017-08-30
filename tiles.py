@@ -16,6 +16,8 @@ crate = pygame.image.load("resources/images/crate.jpg")
 class All():
     DebugBool = False
     DebugV = [0,0]
+    rot = 0
+
     placeCheck = True
 
     itemHolding = None
@@ -23,15 +25,15 @@ class All():
     healthbar = pygame.image.load("resources/images/healthbar.jpg")
     health = pygame.image.load("resources/images/health.jpg")
 
-    def Draw(self, img, x, y, rot):
-        playerrot = pygame.transform.rotate(img ,rot*90)
-        playerpos1 = (x, y)
+    def Draw(self):
+        playerrot = pygame.transform.rotate(self.image ,self.rot*90)
+        playerpos1 = (self.pos[0], self.pos[1])
         magic.mapScreen.blit(playerrot, playerpos1)
         # pygame.draw.rect(magic.mapScreen, (50,50,131), pygame.Rect((x,y),(64,64)))
 
     def checkCollision(self, pos):
         boxrect = pygame.Rect((pos[0],pos[1]),(30,30))
-        myRect = pygame.Rect((self.x,self.y),(48,48))
+        myRect = pygame.Rect((self.pos[0],self.pos[1]),(48,48))
         # self.DebugV[0] = pos[0]
         # self.DebugV[1] = pos[1]
         # self.DebugBool = True
@@ -42,7 +44,7 @@ class All():
 
     def spaceChecker(self):
         for i in magic.MItems:
-            pos = [i.x,i.y]
+            pos = [i.pos[0],i.pos[1]]
             if not i.isHold:
                 if(self.checkCollision(pos)):
                     self.placeCheck = False
@@ -53,12 +55,16 @@ class All():
 
     def itemCheck(self):
         pos = [0,0]
-        checker = False
         # go through items
         for i in magic.MItems:
             # if item collides with self storage
+<<<<<<< Updated upstream
             pos[0] = i.x
             pos[1] = i.y
+=======
+            pos[0] = i.pos[0]
+            pos[1] = i.pos[1]
+>>>>>>> Stashed changes
             if(All.checkCollision(self, pos)):
                 # object is there
                 self.itemHolding = i
@@ -76,11 +82,10 @@ class Crate(All):
         #super().__init__()
         self.image = pygame.image.load("resources/images/crate.jpg")
         self.rect = self.image.get_rect()
-        self.x = x
-        self.y = y
+        self.pos = [x,y]
 
     def Update(self):
-        All.Draw(self, self.image, self.x, self.y, 0)
+        All.Draw(self)
         All.spaceChecker(self)
         All.Debug(self)
 
@@ -97,15 +102,20 @@ class Storage(All):
         self.image = pygame.image.load("resources/images/storage.jpg")
         self.rect = self.image.get_rect()
         self.itemHolding = item #Holding = Blueprint to place
+<<<<<<< Updated upstream
         self.x = x
         self.y = y
+=======
+        self.pos = [x,y]
+>>>>>>> Stashed changes
         self.placeCheck = False
 
     def Update(self):
-        All.Draw(self, self.image, self.x, self.y, 0)
+        All.Draw(self)
         # If empty create new Item
         if All.itemCheck(self):
-            magic.MItems.append(self.itemHolding(self.x,self.y))
+            print("here")
+            magic.MItems.append(self.itemHolding(self.pos[0],self.pos[1]))
 
         All.Debug(self)
 
@@ -121,8 +131,8 @@ class cuttingBoard(All):
         # go through items
         for i in magic.MItems:
             # if item collides with self
-            pos[0] = i.x
-            pos[1] = i.y
+            pos[0] = i.pos[0]
+            pos[1] = i.pos[1]
             if(All.checkCollision(self, pos) and i.processable):
                 # object is there
                 checker = True
@@ -135,9 +145,9 @@ class cuttingBoard(All):
         if self.itemInProcess != None:
             if self.process < 30:
                 # Draw progress bar
-                magic.mapScreen.blit(All.healthbar, (self.x,self.y-5))
+                magic.mapScreen.blit(All.healthbar, (self.pos[0],self.pos[1]-5))
                 for health1 in range(self.process*2):
-                    magic.mapScreen.blit(All.health, (health1+self.x+1,self.y-4))
+                    magic.mapScreen.blit(All.health, (health1+self.pos[0]+1,self.pos[1]-4))
             if self.process >= 30:
                 self.itemInProcess.isOccupied = False
                 self.itemInProcess.changeSkin()
@@ -158,11 +168,10 @@ class cuttingBoard(All):
         #super().__init__()
         self.image = pygame.image.load("resources/images/cuttingboard.jpg")
         self.rect = self.image.get_rect()
-        self.x = x
-        self.y = y
+        self.pos = [x,y]
         self.rot = (random.randint(0, 4)*90)
 
     def Update(self):
-        All.Draw(self, self.image, self.x, self.y, self.rot)
+        All.Draw(self)
         self.itemHandler()
         All.Debug(self)
