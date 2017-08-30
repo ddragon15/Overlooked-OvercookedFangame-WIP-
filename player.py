@@ -88,15 +88,6 @@ class Player(pygame.sprite.Sprite):
         # pygame.draw.rect(magic.mapScreen, (11,31, 131), pygame.Rect(pos,(15,15)))
         return pos
 
-    def Update(self, GTiles):
-        self.tiles = GTiles;
-        self.Move()
-        if self.itemHolding is not None:
-            self.itemHolding.setPos(self.getInfront())
-        self.Draw()
-        pos = self.getInfront()
-        # pygame.draw.rect(magic.mapScreen, (20,50,231), pygame.Rect((pos[0],pos[1]),(20,20)))
-
     def Grapper(self):
         # TODO add plate decition
 
@@ -134,12 +125,21 @@ class Player(pygame.sprite.Sprite):
             self.itemHolding = None
         # Bilanz
         return
-
+    # TODO redundenz
     def checkHolding(self):
         if self.itemHolding:
             return True
         else:
             return False
-
+    # TODO redundenz
     def setHolding(self, holder):
         self.itemHolding = holder
+
+    def Update(self, GTiles):
+        self.tiles = GTiles;
+        self.Move()
+        if self.itemHolding is not None:
+            self.itemHolding.setPos(self.getInfront())
+        self.Draw()
+        pos = self.getInfront()
+        # pygame.draw.rect(magic.mapScreen, (20,50,231), pygame.Rect((pos[0],pos[1]),(20,20)))

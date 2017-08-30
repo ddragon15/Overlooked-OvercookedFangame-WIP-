@@ -84,7 +84,6 @@ class Tomato(All):
             self.skin = "resources/images/tomatoS.png"
             self.image = pygame.image.load(self.skin)
 
-
 class Plate(All):
     processable = False
     # TODO make states for different Foods

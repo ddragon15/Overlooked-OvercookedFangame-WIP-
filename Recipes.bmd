@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<document type="BLUMIND" editor_version="3.2.902.24361" document_version="3.0.0.0">
+  <!--Create by Blumind, you can download it free from http://www.blumind.org-->
+  <information>
+    <author>ddragon</author>
+    <company>
+    </company>
+    <version>3.0</version>
+    <description>
+    </description>
+  </information>
+  <attributes>
+    <item name="editor_show_sidebar">True</item>
+  </attributes>
+  <charts active_chart="0">
+    <chart name="New Chart 1" type="MindMap">
+      <remark>
+      </remark>
+      <layout>MIND_MAP</layout>
+      <style>
+        <back_color>White</back_color>
+        <fore_color>Black</fore_color>
+        <line_color>LightSlateGray</line_color>
+        <border_color>SlateGray</border_color>
+        <node_back_color>LightGray</node_back_color>
+        <node_fore_color>Black</node_fore_color>
+        <select_color>RoyalBlue</select_color>
+        <hover_color>MediumSlateBlue</hover_color>
+        <link_line_color>Green</link_line_color>
+        <widget_margin>1</widget_margin>
+        <picture_thumb_size>100, 100</picture_thumb_size>
+      </style>
+      <nodes>
+        <node id="2" text="Recipes" x="434" y="618" width="70" height="42" text_b="12, 12, 46, 18">
+          <style>
+            <back_color>Silver</back_color>
+            <fore_color>Black</fore_color>
+            <border_color>Black</border_color>
+            <padding>12</padding>
+          </style>
+          <nodes>
+            <node id="3" text="Mapping" x="296" y="628" width="58" height="22" text_b="2, 2, 54, 18" fold_btn_b="282, 633, 13, 13">
+              <nodes>
+                <node id="64" text="Dough" x="170" y="548" width="46" height="22" text_b="2, 2, 42, 18" />
+                <node id="65" text="Tortillia" x="167" y="580" width="49" height="22" text_b="2, 2, 45, 18" />
+                <node id="66" text="Burger Bread" x="136" y="612" width="80" height="22" text_b="2, 2, 76, 18" />
+                <node id="67" text="plate" x="180" y="676" width="36" height="22" text_b="2, 2, 32, 18" fold_btn_b="166, 681, 13, 13">
+                  <nodes>
+                    <node id="68" text="Burger Bread" x="20" y="644" width="80" height="22" text_b="2, 2, 76, 18" />
+                    <node id="69" text="Tortillia" x="51" y="676" width="49" height="22" text_b="2, 2, 45, 18" />
+                    <node id="70" text="Dough" x="54" y="708" width="46" height="22" text_b="2, 2, 42, 18" />
+                  </nodes>
+                  <lines>
+                    <line target="68" begin_side="Left" end_side="Right" begin_rect="167, 676, 49, 22" end_rect="20, 644, 80, 22" />
+                    <line target="69" begin_side="Left" end_side="Right" begin_rect="167, 676, 49, 22" end_rect="51, 676, 49, 22" />
+                    <line target="70" begin_side="Left" end_side="Right" begin_rect="167, 676, 49, 22" end_rect="54, 708, 46, 22" />
+                  </lines>
+                </node>
+              </nodes>
+              <lines>
+                <line target="64" begin_side="Left" end_side="Right" begin_rect="283, 628, 71, 22" end_rect="170, 548, 46, 22" />
+                <line target="65" begin_side="Left" end_side="Right" begin_rect="283, 628, 71, 22" end_rect="167, 580, 49, 22" />
+                <line target="66" begin_side="Left" end_side="Right" begin_rect="283, 628, 71, 22" end_rect="136, 612, 80, 22" />
+                <line target="67" begin_side="Left" end_side="Right" begin_rect="283, 628, 71, 22" end_rect="180, 676, 36, 22" />
+              </lines>
+            </node>
+            <node id="4" text="Brainstorm" x="584" y="628" width="68" height="22" text_b="2, 2, 64, 18" fold_btn_b="653, 633, 13, 13">
+              <nodes>
+                <node id="5" text="Incridience" x="732" y="484" width="68" height="22" text_b="2, 2, 64, 18" fold_btn_b="801, 489, 13, 13">
+                  <nodes>
+                    <node id="6" text="Meat" x="880" y="100" width="37" height="22" text_b="2, 2, 33, 18" fold_btn_b="918, 105, 13, 13">
+                      <style>
+                        <back_color>#8080FF</back_color>
+                      </style>
+                      <nodes>
+                        <node id="7" text="Fish (yeah i know)" x="997" y="20" width="105" height="22" text_b="2, 2, 101, 18" />
+                        <node id="8" text="Cheese" x="997" y="52" width="48" height="22" text_b="2, 2, 44, 18" fold_btn_b="1046, 57, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="71" text="sliced" x="1125" y="52" width="39" height="22" text_b="2, 2, 35, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="71" begin_side="Right" end_side="Left" begin_rect="997, 52, 61, 22" end_rect="1125, 52, 39, 22" />
+                          </lines>
+                        </node>
+                        <node id="9" text="Turkey" x="997" y="84" width="45" height="22" text_b="2, 2, 41, 18" fold_btn_b="1043, 89, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="72" text="flambeed" x="1122" y="84" width="60" height="22" text_b="2, 2, 56, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="72" begin_side="Right" end_side="Left" begin_rect="997, 84, 58, 22" end_rect="1122, 84, 60, 22" />
+                          </lines>
+                        </node>
+                        <node id="10" text="Chicken" x="997" y="116" width="51" height="22" text_b="2, 2, 47, 18" fold_btn_b="1049, 121, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="73" text="sliced" x="1128" y="116" width="39" height="22" text_b="2, 2, 35, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="73" begin_side="Right" end_side="Left" begin_rect="997, 116, 64, 22" end_rect="1128, 116, 39, 22" />
+                          </lines>
+                        </node>
+                        <node id="11" text="Meat" x="997" y="164" width="37" height="22" text_b="2, 2, 33, 18" fold_btn_b="1035, 169, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="74" text="fried" x="1114" y="148" width="33" height="22" text_b="2, 2, 29, 18" />
+                            <node id="75" text="sliced" x="1114" y="180" width="39" height="22" text_b="2, 2, 35, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="74" begin_side="Right" end_side="Left" begin_rect="997, 164, 50, 22" end_rect="1114, 148, 33, 22" />
+                            <line target="75" begin_side="Right" end_side="Left" begin_rect="997, 164, 50, 22" end_rect="1114, 180, 39, 22" />
+                          </lines>
+                        </node>
+                      </nodes>
+                      <lines>
+                        <line target="7" begin_side="Right" end_side="Left" begin_rect="880, 100, 50, 22" end_rect="997, 20, 105, 22" />
+                        <line target="8" begin_side="Right" end_side="Left" begin_rect="880, 100, 50, 22" end_rect="997, 52, 48, 22" />
+                        <line target="9" begin_side="Right" end_side="Left" begin_rect="880, 100, 50, 22" end_rect="997, 84, 45, 22" />
+                        <line target="10" begin_side="Right" end_side="Left" begin_rect="880, 100, 50, 22" end_rect="997, 116, 51, 22" />
+                        <line target="11" begin_side="Right" end_side="Left" begin_rect="880, 100, 50, 22" end_rect="997, 164, 37, 22" />
+                      </lines>
+                    </node>
+                    <node id="12" text="Spices" x="880" y="244" width="43" height="22" text_b="2, 2, 39, 18" fold_btn_b="924, 249, 13, 13">
+                      <nodes>
+                        <node id="13" text="Pepper" x="1003" y="228" width="47" height="22" text_b="2, 2, 43, 18" fold_btn_b="1051, 233, 13, 13">
+                          <nodes>
+                            <node id="76" text="Soup" x="1130" y="212" width="37" height="22" text_b="2, 2, 33, 18" />
+                            <node id="77" text="for fish" x="1130" y="244" width="46" height="22" text_b="2, 2, 42, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="76" begin_side="Right" end_side="Left" begin_rect="1003, 228, 60, 22" end_rect="1130, 212, 37, 22" />
+                            <line target="77" begin_side="Right" end_side="Left" begin_rect="1003, 228, 60, 22" end_rect="1130, 244, 46, 22" />
+                          </lines>
+                        </node>
+                        <node id="14" text="Salt" x="1003" y="276" width="29" height="22" text_b="2, 2, 25, 18" fold_btn_b="1033, 281, 13, 13">
+                          <nodes>
+                            <node id="78" text="for pomfrit" x="1112" y="276" width="68" height="22" text_b="2, 2, 64, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="78" begin_side="Right" end_side="Left" begin_rect="1003, 276, 42, 22" end_rect="1112, 276, 68, 22" />
+                          </lines>
+                        </node>
+                      </nodes>
+                      <lines>
+                        <line target="13" begin_side="Right" end_side="Left" begin_rect="880, 244, 56, 22" end_rect="1003, 228, 47, 22" />
+                        <line target="14" begin_side="Right" end_side="Left" begin_rect="880, 244, 56, 22" end_rect="1003, 276, 29, 22" />
+                      </lines>
+                    </node>
+                    <node id="15" text="Vegetables" x="880" y="484" width="69" height="22" text_b="2, 2, 65, 18" fold_btn_b="950, 489, 13, 13">
+                      <style>
+                        <back_color>#8080FF</back_color>
+                      </style>
+                      <nodes>
+                        <node id="16" text="Broccoli" x="1029" y="324" width="52" height="22" text_b="2, 2, 48, 18" fold_btn_b="1082, 329, 13, 13">
+                          <nodes>
+                            <node id="17" text="sliced" x="1161" y="308" width="39" height="22" text_b="2, 2, 35, 18" fold_btn_b="1201, 313, 13, 13">
+                              <nodes>
+                                <node id="18" text="Unterthema 1" x="1280" y="308" width="84" height="22" text_b="2, 2, 80, 18" />
+                              </nodes>
+                              <lines>
+                                <line target="18" begin_side="Right" end_side="Left" begin_rect="1161, 308, 52, 22" end_rect="1280, 308, 84, 22" />
+                              </lines>
+                            </node>
+                            <node id="19" text="cooked" x="1161" y="340" width="49" height="22" text_b="2, 2, 45, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="17" begin_side="Right" end_side="Left" begin_rect="1029, 324, 65, 22" end_rect="1161, 308, 39, 22" />
+                            <line target="19" begin_side="Right" end_side="Left" begin_rect="1029, 324, 65, 22" end_rect="1161, 340, 49, 22" />
+                          </lines>
+                        </node>
+                        <node id="20" text="Carrots" x="1029" y="372" width="48" height="22" text_b="2, 2, 44, 18" fold_btn_b="1078, 377, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="21" text="sliced" x="1157" y="372" width="39" height="22" text_b="2, 2, 35, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="21" begin_side="Right" end_side="Left" begin_rect="1029, 372, 61, 22" end_rect="1157, 372, 39, 22" />
+                          </lines>
+                        </node>
+                        <node id="22" text="Onion" x="1029" y="420" width="42" height="22" text_b="2, 2, 38, 18" fold_btn_b="1072, 425, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="23" text="Soup" x="1151" y="404" width="37" height="22" text_b="2, 2, 33, 18" />
+                            <node id="24" text="sliced" x="1151" y="436" width="39" height="22" text_b="2, 2, 35, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="23" begin_side="Right" end_side="Left" begin_rect="1029, 420, 55, 22" end_rect="1151, 404, 37, 22" />
+                            <line target="24" begin_side="Right" end_side="Left" begin_rect="1029, 420, 55, 22" end_rect="1151, 436, 39, 22" />
+                          </lines>
+                        </node>
+                        <node id="25" text="Lettuce" x="1029" y="468" width="48" height="22" text_b="2, 2, 44, 18" fold_btn_b="1078, 473, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="26" text="Sliced" x="1157" y="468" width="41" height="22" text_b="2, 2, 37, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="26" begin_side="Right" end_side="Left" begin_rect="1029, 468, 61, 22" end_rect="1157, 468, 41, 22" />
+                          </lines>
+                        </node>
+                        <node id="27" text="Potato" x="1029" y="532" width="45" height="22" text_b="2, 2, 41, 18" fold_btn_b="1075, 537, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="28" text="Mashed potatoes" x="1154" y="500" width="103" height="22" text_b="2, 2, 99, 18" />
+                            <node id="29" text="Cooked potatoes" x="1154" y="532" width="102" height="22" text_b="2, 2, 98, 18" />
+                            <node id="30" text="Pomfrit" x="1154" y="564" width="49" height="22" text_b="2, 2, 45, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="28" begin_side="Right" end_side="Left" begin_rect="1029, 532, 58, 22" end_rect="1154, 500, 103, 22" />
+                            <line target="29" begin_side="Right" end_side="Left" begin_rect="1029, 532, 58, 22" end_rect="1154, 532, 102, 22" />
+                            <line target="30" begin_side="Right" end_side="Left" begin_rect="1029, 532, 58, 22" end_rect="1154, 564, 49, 22" />
+                          </lines>
+                        </node>
+                        <node id="31" text="Rice" x="1029" y="596" width="31" height="22" text_b="2, 2, 27, 18" fold_btn_b="1061, 601, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="32" text="Cooked" x="1140" y="596" width="51" height="22" text_b="2, 2, 47, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="32" begin_side="Right" end_side="Left" begin_rect="1029, 596, 44, 22" end_rect="1140, 596, 51, 22" />
+                          </lines>
+                        </node>
+                        <node id="33" text="Champinions" x="1029" y="644" width="80" height="22" text_b="2, 2, 76, 18" fold_btn_b="1110, 649, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="34" text="Champion Soup" x="1189" y="628" width="96" height="22" text_b="2, 2, 92, 18" />
+                            <node id="35" text="Champion Sliced" x="1189" y="660" width="100" height="22" text_b="2, 2, 96, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="34" begin_side="Right" end_side="Left" begin_rect="1029, 644, 93, 22" end_rect="1189, 628, 96, 22" />
+                            <line target="35" begin_side="Right" end_side="Left" begin_rect="1029, 644, 93, 22" end_rect="1189, 660, 100, 22" />
+                          </lines>
+                        </node>
+                      </nodes>
+                      <lines>
+                        <line target="16" begin_side="Right" end_side="Left" begin_rect="880, 484, 82, 22" end_rect="1029, 324, 52, 22" />
+                        <line target="20" begin_side="Right" end_side="Left" begin_rect="880, 484, 82, 22" end_rect="1029, 372, 48, 22" />
+                        <line target="22" begin_side="Right" end_side="Left" begin_rect="880, 484, 82, 22" end_rect="1029, 420, 42, 22" />
+                        <line target="25" begin_side="Right" end_side="Left" begin_rect="880, 484, 82, 22" end_rect="1029, 468, 48, 22" />
+                        <line target="27" begin_side="Right" end_side="Left" begin_rect="880, 484, 82, 22" end_rect="1029, 532, 45, 22" />
+                        <line target="31" begin_side="Right" end_side="Left" begin_rect="880, 484, 82, 22" end_rect="1029, 596, 31, 22" />
+                        <line target="33" begin_side="Right" end_side="Left" begin_rect="880, 484, 82, 22" end_rect="1029, 644, 80, 22" />
+                      </lines>
+                    </node>
+                    <node id="36" text="Groundings" x="880" y="772" width="72" height="22" text_b="2, 2, 68, 18" fold_btn_b="953, 777, 13, 13">
+                      <style>
+                        <back_color>#8080FF</back_color>
+                      </style>
+                      <nodes>
+                        <node id="37" text="Taco" x="1032" y="692" width="34" height="22" text_b="2, 2, 30, 18" />
+                        <node id="38" text="Burger Bread" x="1032" y="724" width="80" height="22" text_b="2, 2, 76, 18">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                        </node>
+                        <node id="39" text="Tortillia" x="1032" y="756" width="49" height="22" text_b="2, 2, 45, 18">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                        </node>
+                        <node id="40" text="Doug" x="1032" y="820" width="39" height="22" text_b="2, 2, 35, 18" fold_btn_b="1072, 825, 13, 13">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                          <nodes>
+                            <node id="41" text="CookieDoug" x="1151" y="788" width="76" height="22" text_b="2, 2, 72, 18" fold_btn_b="1228, 793, 13, 13">
+                              <nodes>
+                                <node id="42" text="Stencil" x="1307" y="788" width="44" height="22" text_b="2, 2, 40, 18" />
+                              </nodes>
+                              <lines>
+                                <line target="42" begin_side="Right" end_side="Left" begin_rect="1151, 788, 89, 22" end_rect="1307, 788, 44, 22" />
+                              </lines>
+                            </node>
+                            <node id="43" text="PizzaDoug" x="1151" y="820" width="66" height="22" text_b="2, 2, 62, 18" fold_btn_b="1218, 825, 13, 13">
+                              <nodes>
+                                <node id="44" text="Press" x="1297" y="820" width="37" height="22" text_b="2, 2, 33, 18" />
+                              </nodes>
+                              <lines>
+                                <line target="44" begin_side="Right" end_side="Left" begin_rect="1151, 820, 79, 22" end_rect="1297, 820, 37, 22" />
+                              </lines>
+                            </node>
+                            <node id="45" text="Noodles" x="1151" y="852" width="54" height="22" text_b="2, 2, 50, 18" fold_btn_b="1206, 857, 13, 13">
+                              <nodes>
+                                <node id="46" text="Sliced" x="1285" y="852" width="41" height="22" text_b="2, 2, 37, 18" />
+                              </nodes>
+                              <lines>
+                                <line target="46" begin_side="Right" end_side="Left" begin_rect="1151, 852, 67, 22" end_rect="1285, 852, 41, 22" />
+                              </lines>
+                            </node>
+                          </nodes>
+                          <lines>
+                            <line target="41" begin_side="Right" end_side="Left" begin_rect="1032, 820, 52, 22" end_rect="1151, 788, 76, 22" />
+                            <line target="43" begin_side="Right" end_side="Left" begin_rect="1032, 820, 52, 22" end_rect="1151, 820, 66, 22" />
+                            <line target="45" begin_side="Right" end_side="Left" begin_rect="1032, 820, 52, 22" end_rect="1151, 852, 54, 22" />
+                          </lines>
+                        </node>
+                      </nodes>
+                      <lines>
+                        <line target="37" begin_side="Right" end_side="Left" begin_rect="880, 772, 85, 22" end_rect="1032, 692, 34, 22" />
+                        <line target="38" begin_side="Right" end_side="Left" begin_rect="880, 772, 85, 22" end_rect="1032, 724, 80, 22" />
+                        <line target="39" begin_side="Right" end_side="Left" begin_rect="880, 772, 85, 22" end_rect="1032, 756, 49, 22" />
+                        <line target="40" begin_side="Right" end_side="Left" begin_rect="880, 772, 85, 22" end_rect="1032, 820, 39, 22" />
+                      </lines>
+                    </node>
+                    <node id="47" text="Tomato" x="880" y="916" width="51" height="22" text_b="2, 2, 47, 18" fold_btn_b="932, 921, 13, 13">
+                      <nodes>
+                        <node id="48" text="passed tomato" x="1011" y="884" width="89" height="22" text_b="2, 2, 85, 18" fold_btn_b="1101, 889, 13, 13">
+                          <nodes>
+                            <node id="49" text="Pressed" x="1180" y="884" width="50" height="22" text_b="2, 2, 46, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="49" begin_side="Right" end_side="Left" begin_rect="1011, 884, 102, 22" end_rect="1180, 884, 50, 22" />
+                          </lines>
+                        </node>
+                        <node id="50" text="Tomato  Slices (more diced)" x="1011" y="916" width="160" height="22" text_b="2, 2, 156, 18" fold_btn_b="1172, 921, 13, 13">
+                          <nodes>
+                            <node id="51" text="Sliced" x="1251" y="916" width="41" height="22" text_b="2, 2, 37, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="51" begin_side="Right" end_side="Left" begin_rect="1011, 916, 173, 22" end_rect="1251, 916, 41, 22" />
+                          </lines>
+                        </node>
+                        <node id="52" text="Tomato Sauce" x="1011" y="948" width="86" height="22" text_b="2, 2, 82, 18" fold_btn_b="1098, 953, 13, 13">
+                          <nodes>
+                            <node id="53" text="cooked" x="1177" y="948" width="49" height="22" text_b="2, 2, 45, 18" />
+                          </nodes>
+                          <lines>
+                            <line target="53" begin_side="Right" end_side="Left" begin_rect="1011, 948, 99, 22" end_rect="1177, 948, 49, 22" />
+                          </lines>
+                        </node>
+                      </nodes>
+                      <lines>
+                        <line target="48" begin_side="Right" end_side="Left" begin_rect="880, 916, 64, 22" end_rect="1011, 884, 89, 22" />
+                        <line target="50" begin_side="Right" end_side="Left" begin_rect="880, 916, 64, 22" end_rect="1011, 916, 160, 22" />
+                        <line target="52" begin_side="Right" end_side="Left" begin_rect="880, 916, 64, 22" end_rect="1011, 948, 86, 22" />
+                      </lines>
+                    </node>
+                  </nodes>
+                  <lines>
+                    <line target="6" begin_side="Right" end_side="Left" begin_rect="732, 484, 81, 22" end_rect="880, 100, 37, 22" />
+                    <line target="12" begin_side="Right" end_side="Left" begin_rect="732, 484, 81, 22" end_rect="880, 244, 43, 22" />
+                    <line target="15" begin_side="Right" end_side="Left" begin_rect="732, 484, 81, 22" end_rect="880, 484, 69, 22" />
+                    <line target="36" begin_side="Right" end_side="Left" begin_rect="732, 484, 81, 22" end_rect="880, 772, 72, 22" />
+                    <line target="47" begin_side="Right" end_side="Left" begin_rect="732, 484, 81, 22" end_rect="880, 916, 51, 22" />
+                  </lines>
+                </node>
+                <node id="54" text="Utilities" x="732" y="1108" width="49" height="22" text_b="2, 2, 45, 18" fold_btn_b="782, 1113, 13, 13">
+                  <nodes>
+                    <node id="79" text="fryer" x="861" y="980" width="33" height="22" text_b="2, 2, 29, 18" />
+                    <node id="56" text="Flamethrower" x="861" y="1012" width="83" height="22" text_b="2, 2, 79, 18">
+                      <style>
+                        <back_color>#8080FF</back_color>
+                      </style>
+                    </node>
+                    <node id="57" text="Cooking field" x="861" y="1060" width="81" height="22" text_b="2, 2, 77, 18" fold_btn_b="943, 1065, 13, 13">
+                      <style>
+                        <back_color>#8080FF</back_color>
+                      </style>
+                      <nodes>
+                        <node id="58" text="Cooking pot" x="1022" y="1044" width="76" height="22" text_b="2, 2, 72, 18">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                        </node>
+                        <node id="59" text="Pan" x="1022" y="1076" width="29" height="22" text_b="2, 2, 25, 18">
+                          <style>
+                            <back_color>#8080FF</back_color>
+                          </style>
+                        </node>
+                      </nodes>
+                      <lines>
+                        <line target="58" begin_side="Right" end_side="Left" begin_rect="861, 1060, 94, 22" end_rect="1022, 1044, 76, 22" />
+                        <line target="59" begin_side="Right" end_side="Left" begin_rect="861, 1060, 94, 22" end_rect="1022, 1076, 29, 22" />
+                      </lines>
+                    </node>
+                    <node id="60" text="CuttingBoard" x="861" y="1108" width="99" height="22" text_b="20, 2, 77, 18">
+                      <style>
+                        <back_color>#8080FF</back_color>
+                      </style>
+                      <widgets>
+                        <widget type="PICTURE" x="3" y="3" width="16" height="16" align="Left" hyperlink="" display_index="0" padding="0" image_url="102.png" size_type="Thumb" original_size="16, 16" embed_in="False">
+                          <text>102</text>
+                          <thumb><![CDATA[iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEaSURBVDhP1UytigJhFP3eQERBQSwaFMQ0YQQRr4yvYLCYbDaLuIIjKDhpDQbZsLvBIOojGLZssm3btmmLwVe4y7nccdERGcOGPXD4zj0/n/mfcLYOOWtnpOd9wLi+qTOoVnhUV1WqrWrsHT3Gq3Y4lJdlqiwrMp4cJgytkTH2sz2yX23SMwBkpZeSjN1vV4hbY2OsJ4uFCyvwCTxkGPe/+sJAtzgvSgFvYV44BdB+1v3sCi87gvxjnjsfHSlC52Y5AqHhIQP9TGe/yHgZbu/bQgxwg9C+jzs7zQbHQGqcovQ4za33lhBD0L+RoaP160i4CUoOk9x8a54RHjKt3UZsEKP4Q5wbu4YQGp7G4RDpRSjaizIIrfZfwZgfHcS9NF4kEBkAAAAASUVORK5CYII=]]></thumb>
+                        </widget>
+                      </widgets>
+                    </node>
+                    <node id="61" text="Oven" x="861" y="1140" width="37" height="22" text_b="2, 2, 33, 18">
+                      <style>
+                        <back_color>#8080FF</back_color>
+                      </style>
+                    </node>
+                    <node id="62" text="Roller" x="861" y="1172" width="40" height="22" text_b="2, 2, 36, 18">
+                      <style>
+                        <back_color>Yellow</back_color>
+                      </style>
+                    </node>
+                    <node id="63" text="Press (Juicer?)" x="861" y="1204" width="84" height="22" text_b="2, 2, 80, 18">
+                      <style>
+                        <back_color>Yellow</back_color>
+                      </style>
+                    </node>
+                    <node id="55" text="Stencil" x="861" y="1236" width="44" height="22" text_b="2, 2, 40, 18" />
+                  </nodes>
+                  <lines>
+                    <line target="79" begin_side="Right" end_side="Left" begin_rect="732, 1108, 62, 22" end_rect="861, 980, 33, 22" />
+                    <line target="56" begin_side="Right" end_side="Left" begin_rect="732, 1108, 62, 22" end_rect="861, 1012, 83, 22" />
+                    <line target="57" begin_side="Right" end_side="Left" begin_rect="732, 1108, 62, 22" end_rect="861, 1060, 81, 22" />
+                    <line target="60" begin_side="Right" end_side="Left" begin_rect="732, 1108, 62, 22" end_rect="861, 1108, 99, 22" />
+                    <line target="61" begin_side="Right" end_side="Left" begin_rect="732, 1108, 62, 22" end_rect="861, 1140, 37, 22" />
+                    <line target="62" begin_side="Right" end_side="Left" begin_rect="732, 1108, 62, 22" end_rect="861, 1172, 40, 22" />
+                    <line target="63" begin_side="Right" end_side="Left" begin_rect="732, 1108, 62, 22" end_rect="861, 1204, 84, 22" />
+                    <line target="55" begin_side="Right" end_side="Left" begin_rect="732, 1108, 62, 22" end_rect="861, 1236, 44, 22" />
+                  </lines>
+                </node>
+              </nodes>
+              <lines>
+                <line target="5" begin_side="Right" end_side="Left" begin_rect="584, 628, 81, 22" end_rect="732, 484, 68, 22" />
+                <line target="54" begin_side="Right" end_side="Left" begin_rect="584, 628, 81, 22" end_rect="732, 1108, 49, 22" />
+              </lines>
+            </node>
+          </nodes>
+          <lines>
+            <line target="3" begin_side="Left" end_side="Right" begin_rect="434, 618, 70, 42" end_rect="296, 628, 58, 22" />
+            <line target="4" begin_side="Right" end_side="Left" begin_rect="434, 618, 70, 42" end_rect="584, 628, 68, 22" />
+          </lines>
+        </node>
+      </nodes>
+    </chart>
+  </charts>
+</document>
