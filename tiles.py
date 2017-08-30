@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 import math
 import random
+import inspect
 
 import items
 import magic
@@ -41,28 +42,27 @@ class All():
             return True
         else:
             return False
-
-    def spaceChecker(self):
-        for i in magic.MItems:
-            pos = [i.pos[0],i.pos[1]]
-            if not i.isHold:
-                if(self.checkCollision(pos)):
-                    self.placeCheck = False
-                    self.itemHolding = i
-                    return
-        self.placeCheck = True
-        self.itemOccupied = None
+    # THIS MUSS GO!!!
+    # def spaceChecker(self):
+    #     for i in magic.MItems:
+    #         pos = [i.pos[0],i.pos[1]]
+    #         if not i.isHold:
+    #             if(self.checkCollision(pos)):
+    #                 self.placeCheck = False
+    #                 self.itemHolding = i
+    #                 return
+    #     self.placeCheck = True
+    #     self.itemOccupied = None
 
     def itemCheck(self):
         pos = [0,0]
         # go through items
         for i in magic.MItems:
             # if item collides with self storage
-            pos[0] = i.pos[0]
-            pos[1] = i.pos[1]
-            if(All.checkCollision(self, pos)):
+            if(All.checkCollision(self, i.pos)):
                 # object is there
-                self.itemHolding = i
+                if not inspect.isclass(self.itemHolding):
+                    self.itemHolding = i
                 return True
                 break
         return False
@@ -81,7 +81,7 @@ class Crate(All):
 
     def Update(self):
         All.Draw(self)
-        All.spaceChecker(self)
+        All.itemCheck(self)
         All.Debug(self)
 
 class Storage(All):
@@ -89,8 +89,6 @@ class Storage(All):
     # def ItemChoose(self):
     #     #check wich item
     #     if(self.item == "Onion"):
-
-
 
     def __init__(self, x, y, item):
         #super().__init__()
@@ -103,7 +101,7 @@ class Storage(All):
     def Update(self):
         All.Draw(self)
         # If empty create new Item
-        if All.itemCheck(self):
+        if not All.itemCheck(self):
             print("here")
             magic.MItems.append(self.itemHolding(self.pos[0],self.pos[1]))
 
