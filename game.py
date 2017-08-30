@@ -82,7 +82,7 @@ if __name__ == "__main__":
     magic.MTiles.append(tiles.Crate(64,125))
     magic.MTiles.append(tiles.Crate(128,125))
     magic.MTiles.append(tiles.Crate(64*5,125))
-    magic.MTiles.append(tiles.Storage(64*2,125+64,"onion"))
+    magic.MTiles.append(tiles.Storage(64*2,125+64,items.Onion))
     magic.MTiles.append(tiles.cuttingBoard(64,125+64))
 
     magic.MItems.append(items.Onion(128,125))

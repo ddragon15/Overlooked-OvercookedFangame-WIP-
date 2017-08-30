@@ -8,6 +8,7 @@ import magic
 class All():
     DebugBool = False
     DebugV = [0,0]
+
     isHold = False
     isOccupied = False
     processable = True
@@ -42,13 +43,12 @@ class Onion(All):
     tag = "onion"
 
     def __init__(self, x, y):
-        #super().__init__()
         self.skin = "resources/images/onion.png"
         self.image = pygame.image.load(self.skin)
         # w,h = self.image.get_size()
         # self.image = pygame.transform.scale(self.image, (int(w),int(h)))
-        self.rect = self.image.get_rect()
         # self.rect.topleft = [x,y]
+        self.rect = self.image.get_rect()
         self.x = x+24
         self.y = y+24
         self.rot = random.randint(0, 360)*1

@@ -16,6 +16,10 @@ crate = pygame.image.load("resources/images/crate.jpg")
 class All():
     DebugBool = False
     DebugV = [0,0]
+    placeCheck = True
+
+    itemHolding = None
+
     healthbar = pygame.image.load("resources/images/healthbar.jpg")
     health = pygame.image.load("resources/images/health.jpg")
 
@@ -42,18 +46,31 @@ class All():
             if not i.isHold:
                 if(self.checkCollision(pos)):
                     self.placeCheck = False
-                    self.itemOccupied = i
+                    self.itemHolding = i
                     return
         self.placeCheck = True
         self.itemOccupied = None
+
+    def itemCheck(self):
+        pos = [0,0]
+        checker = False
+        # go through items
+        for i in magic.MItems:
+            # if item collides with self storage
+            pos[0] = i.x
+            pos[1] = i.y
+            if(All.checkCollision(self, pos) and i.tag == self.item):
+                # object is there
+                self.itemHolding = i
+                return True
+                break
+        return False
 
     def Debug(self):
         if self.DebugBool:
             pygame.draw.rect(magic.mapScreen, (50,250,131), pygame.Rect((self.DebugV[0],self.DebugV[1]),(25,25)))
 
 class Crate(All):
-    placeCheck = True
-    itemOccupied = None
 
     def __init__(self, x, y):
         #super().__init__()
@@ -68,59 +85,35 @@ class Crate(All):
         All.Debug(self)
 
 class Storage(All):
-    placeCheck = False
+    #
+    # def ItemChoose(self):
+    #     #check wich item
+    #     if(self.item == "Onion"):
 
-    def ItemChoose(self):
-        #check wich item
-        if(self.item == "onion"):
-            self.itemPlace = items.Onion
 
-    def itemHandler(self):
-        pos = [0,0]
-        checker = False
-        # go through items
-        for i in magic.MItems:
-            # if item collides with self storage
-            pos[0] = i.x
-            pos[1] = i.y
-            if(All.checkCollision(self, pos) and i.tag == self.item):
-                # object is there
-                checker = True
-                break
-        # if no object is there make one
-        if not checker:
-            magic.MItems.append(self.itemPlace(self.x,self.y))
 
     def __init__(self, x, y, item):
         #super().__init__()
         self.image = pygame.image.load("resources/images/storage.jpg")
         self.rect = self.image.get_rect()
-        self.item = item
+        self.itemHolding = item #Holding = Blueprint to place
+        print(str(self.itemHolding))
         self.x = x
         self.y = y
-        self.ItemChoose()
+        self.placeCheck = False
 
     def Update(self):
         All.Draw(self, self.image, self.x, self.y, 0)
-        self.itemHandler()
+        # If empty create new Item
+        if All.itemCheck(self):
+            magic.MItems.append(self.itemHolding(self.x,self.y))
+
         All.Debug(self)
 
-    # def Hold(self, x, y):
-    #     self.x = x
-    #     self.y = y
-
 class cuttingBoard(All):
-    placeCheck = True
-    itemInProcess = None
+    itemInProcess = False
     process = 0
 
-    def __init__(self, x, y):
-        #super().__init__()
-        self.image = pygame.image.load("resources/images/cuttingBoard.jpg")
-        self.rect = self.image.get_rect()
-        self.x = x
-        self.y = y
-        self.rot = (random.randint(0, 4)*90)
 
     def itemHandler(self):
         # Check if item is on Surface
@@ -157,10 +150,20 @@ class cuttingBoard(All):
             self.itemInProcess = None
             return
 
+    # def spaceCheck(self):
+    #     self.process += 1
+    # Lamda function test
+    spaceCheck = lambda self: self.process + 1
+
+    def __init__(self, x, y):
+        #super().__init__()
+        self.image = pygame.image.load("resources/images/cuttingBoard.jpg")
+        self.rect = self.image.get_rect()
+        self.x = x
+        self.y = y
+        self.rot = (random.randint(0, 4)*90)
+
     def Update(self):
         All.Draw(self, self.image, self.x, self.y, self.rot)
         self.itemHandler()
         All.Debug(self)
-
-    def spaceCheck(self):
-            self.process += 1
