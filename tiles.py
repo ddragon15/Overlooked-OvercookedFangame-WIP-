@@ -58,13 +58,8 @@ class All():
         # go through items
         for i in magic.MItems:
             # if item collides with self storage
-<<<<<<< Updated upstream
-            pos[0] = i.x
-            pos[1] = i.y
-=======
             pos[0] = i.pos[0]
             pos[1] = i.pos[1]
->>>>>>> Stashed changes
             if(All.checkCollision(self, pos)):
                 # object is there
                 self.itemHolding = i
@@ -102,12 +97,7 @@ class Storage(All):
         self.image = pygame.image.load("resources/images/storage.jpg")
         self.rect = self.image.get_rect()
         self.itemHolding = item #Holding = Blueprint to place
-<<<<<<< Updated upstream
-        self.x = x
-        self.y = y
-=======
         self.pos = [x,y]
->>>>>>> Stashed changes
         self.placeCheck = False
 
     def Update(self):
