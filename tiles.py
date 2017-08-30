@@ -59,7 +59,7 @@ class All():
             # if item collides with self storage
             pos[0] = i.x
             pos[1] = i.y
-            if(All.checkCollision(self, pos) and i.tag == self.item):
+            if(All.checkCollision(self, pos)):
                 # object is there
                 self.itemHolding = i
                 return True
@@ -97,7 +97,6 @@ class Storage(All):
         self.image = pygame.image.load("resources/images/storage.jpg")
         self.rect = self.image.get_rect()
         self.itemHolding = item #Holding = Blueprint to place
-        print(str(self.itemHolding))
         self.x = x
         self.y = y
         self.placeCheck = False
@@ -157,7 +156,7 @@ class cuttingBoard(All):
 
     def __init__(self, x, y):
         #super().__init__()
-        self.image = pygame.image.load("resources/images/cuttingBoard.jpg")
+        self.image = pygame.image.load("resources/images/cuttingboard.jpg")
         self.rect = self.image.get_rect()
         self.x = x
         self.y = y
