@@ -8,12 +8,6 @@ import items
 import magic
 import player
 
-'''
-storage = pygame.image.load("resources/images/storage.jpg")
-crate = pygame.image.load("resources/images/crate.jpg")
-
-'''
-
 class All():
     DebugBool = False
     DebugV = [0,0]

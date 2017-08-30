@@ -11,7 +11,7 @@ class Player(pygame.sprite.Sprite):
     rotation = 0;
     playerrot = 0;
     infront = (0,0)
-    holding_item = False
+    holding_item = None
 
     halteentfernung = 45
 
@@ -79,24 +79,60 @@ class Player(pygame.sprite.Sprite):
 
         self.rect.topleft = (x-32, y-32) #Collision Rectangle
         if not self.Collision(self.tiles):
-            self.playerpos[0] = x
-            self.playerpos[1] = y
+            self.playerpos = [x,y]
 
-    def GetInfront(self, test):
+    def getInfront(self):
         # pygame.draw.rect(magic.mapScreen, (11,31, 131), pygame.Rect((self.playerpos[0] + (self.infront[0]*self.halteentfernung),self.playerpos[1] + (self.infront[1]*self.halteentfernung)),(15,15)))
-        if not test:
-            return (self.infront[0]*self.halteentfernung,self.infront[1]*self.halteentfernung)
-        else:
             pos = (self.playerpos[0]-8 + (self.infront[0]*self.halteentfernung),self.playerpos[1]-8 + (self.infront[1]*self.halteentfernung))
             return pos
 
     def Update(self, GTiles):
         self.tiles = GTiles;
         self.Move()
+        if self.holding_item is not None:
+            self.holding_item.setPos(self.getInfront())
         self.Draw()
-        pos = self.GetInfront(True)
+        pos = self.getInfront()
         # pygame.draw.rect(magic.mapScreen, (20,50,231), pygame.Rect((pos[0],pos[1]),(20,20)))
 
+    def ItemHandler(self):
+        if not self.CheckHolding(): # if holding nothing
+            # Check if Item is in range
+            for i in magic.MItems:
+                if(i.checkCollision(self.getInfront()) and not i.isOccupied):
+                    # Get that Item
+                    self.holding_item = i
+                    i.isHold = True
+                    return
+            # TODO Brocken Code - spaceCheck for cuttingBoard
+            # for t in magic.MTiles:
+            #     if(t.checkCollision(player.getInfront()) and dir("spaceCheck") == True):
+            #         if t.isOccupied:
+            #             t.spaceCheck()
+            #             return selectItem
+
+        elif(self.CheckHolding()):
+            # Check for Crate
+            for t in magic.MTiles:
+                if(t.checkCollision(self.getInfront())):
+                    if(t.placeCheck):
+                        # Place the item
+                        self.holding_item.pos = [t.pos[0]+24,t.pos[1]+24]
+                        self.holding_item.isHold = False
+                        self.holding_item = None
+                        return
+                    else:
+                        return
+            # # Check for Item
+            # for i in magic.MItems:
+            #     if(i.checkCollision(player.getInfront()) and not i.isHold):
+            #         return None
+            # drop it on the ground
+            self.holding_item.pos = self.getInfront()
+            self.holding_item.isHold = False
+            self.holding_item = None
+        # Bilanz
+        return
 
     def CheckHolding(self):
         if self.holding_item:

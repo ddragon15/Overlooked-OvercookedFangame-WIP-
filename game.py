@@ -25,7 +25,6 @@ if __name__ == "__main__":
     magic.player = player
 
     time = pygame.time.Clock()
-    selectItem = None
     keyPressSpace = False
 
 
@@ -33,49 +32,7 @@ if __name__ == "__main__":
     magic.MItems = [];
 
     # Functions
-    def HoldItem(selectItem):
-        if keyPressSpace:
-            if not player.CheckHolding():
-                # Check if Item is in range
-                for i in magic.MItems:
-                    if(i.checkCollision(player.GetInfront(True)) and not i.isOccupied):
-                        # Get that Item
-                        selectItem = i
-                        player.holding_item = True
-                        i.isHold = True
-                        return selectItem
-                # TODO Brocken Code - spaceCheck for cuttingBoard
-                # for t in magic.MTiles:
-                #     if(t.checkCollision(player.GetInfront(True)) and dir("spaceCheck") == True):
-                #         if t.isOccupied:
-                #             t.spaceCheck()
-                #             return selectItem
 
-            elif(player.CheckHolding()):
-                # Check for Crate
-                for t in magic.MTiles:
-                    if(t.checkCollision(player.GetInfront(True))):
-                        if(t.placeCheck):
-                            # Place the item
-                            selectItem.x = t.pos[0]+24
-                            selectItem.y = t.pos[1]+24
-                            player.holding_item = False
-                            selectItem.isHold = False
-                            return None
-                        else:
-                            return selectItem
-                # # Check for Item
-                # for i in magic.MItems:
-                #     if(i.checkCollision(player.GetInfront(True)) and not i.isHold):
-                #         return None
-                # drop it on the ground
-                pos = player.GetInfront(True)
-                selectItem.x = pos[0]
-                selectItem.y = pos[1]
-                player.holding_item = False
-                selectItem.isHold = False
-            # Bilanz
-            return None
 
     # 2 - Load images
 
@@ -105,9 +62,6 @@ if __name__ == "__main__":
 
         # 6.1 - Set player position and rotation
         player.Update(magic.MTiles)
-        if selectItem is not None:
-            selectItem.setPos(player.GetInfront(True))
-
 
         # 6.4 - Draw DebugInfo
         font = pygame.font.Font(None, 24)
@@ -146,7 +100,7 @@ if __name__ == "__main__":
                 if event.key == K_d:
                     magic.keyPress1 -= 8
                 if event.key == K_SPACE:
-                    selectItem = HoldItem(selectItem)
+                    player.ItemHandler()
                     keyPressSpace = False
 
             # if event.type==pygame.MOUSEBUTTONDOWN:

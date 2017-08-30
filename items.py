@@ -36,8 +36,7 @@ class All():
             pygame.draw.rect(magic.mapScreen, (50,250,131), pygame.Rect((self.DebugV[0],self.DebugV[1]),(34,34)))
 
     def setPos(self, pos):
-        self.pos[0] = pos[0]
-        self.pos[1] = pos[1]
+        self.pos = pos
 
 class Onion(All):
     tag = "onion"
