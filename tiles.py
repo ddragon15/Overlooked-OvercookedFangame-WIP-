@@ -14,7 +14,6 @@ class All():
     rot = 0
 
     placeCheck = True
-
     itemHolding = None
 
     healthbar = pygame.image.load("resources/images/healthbar.jpg")
@@ -36,17 +35,6 @@ class All():
             return True
         else:
             return False
-    # THIS MUSS GO!!!
-    # def spaceChecker(self):
-    #     for i in magic.MItems:
-    #         pos = [i.pos[0],i.pos[1]]
-    #         if not i.isHold:
-    #             if(self.checkCollision(pos)):
-    #                 self.placeCheck = False
-    #                 self.itemHolding = i
-    #                 return
-    #     self.placeCheck = True
-    #     self.itemOccupied = None
 
     def itemCheck(self):
         pos = [0,0]
@@ -105,7 +93,6 @@ class cuttingBoard(All):
     itemInProcess = False
     process = 0
 
-
     def itemHandler(self):
         # Check if item is on Surface
         pos = [0,0]
@@ -121,9 +108,6 @@ class cuttingBoard(All):
                 i.isOccupied = True
                 self.itemInProcess = i
                 break
-        # Process Food
-
-
         if self.itemInProcess != None:
             if self.process < 30:
                 # Draw progress bar
@@ -135,15 +119,11 @@ class cuttingBoard(All):
                 self.itemInProcess.changeSkin()
                 self.itemInProcess.processable = False
 
-
         if not checker:
             self.process = 0
             self.itemInProcess = None
             return
 
-    # def spaceCheck(self):
-    #     self.process += 1
-    # Lamda function test
     spaceCheck = lambda self: self.process + 1
 
     def __init__(self, x, y):

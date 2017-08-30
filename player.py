@@ -98,6 +98,7 @@ class Player(pygame.sprite.Sprite):
     def ItemHandler(self):
         if not self.CheckHolding(): # if holding nothing
             # Check if Item is in range
+
             for i in magic.MItems:
                 if(i.checkCollision(self.getInfront()) and not i.isOccupied):
                     # Get that Item
@@ -105,11 +106,10 @@ class Player(pygame.sprite.Sprite):
                     i.isHold = True
                     return
             # TODO Brocken Code - spaceCheck for cuttingBoard
-            # for t in magic.MTiles:
-            #     if(t.checkCollision(player.getInfront()) and dir("spaceCheck") == True):
-            #         if t.isOccupied:
-            #             t.spaceCheck()
-            #             return selectItem
+            for t in magic.MTiles:
+                if(t.checkCollision(self.getInfront()) and hasattr(t, "process") and t.itemHolding != None):
+                        t.process += 1
+                        return
 
         elif(self.CheckHolding()):
             # Check for Crate
@@ -118,6 +118,7 @@ class Player(pygame.sprite.Sprite):
                     if(t.placeCheck):
                         # Place the item
                         self.holding_item.pos = [t.pos[0]+24,t.pos[1]+24]
+                        t.itemHolding = self.holding_item
                         self.holding_item.isHold = False
                         self.holding_item = None
                         return
