@@ -84,6 +84,28 @@ class Tomato(All):
             self.skin = "resources/images/tomatoS.png"
             self.image = pygame.image.load(self.skin)
 
+class Lettuce(All):
+    tag = "lettuce"
+
+    def __init__(self, x, y):
+        self.skin = "resources/images/lettuce.png"
+        self.image = pygame.image.load(self.skin)
+        # w,h = self.image.get_size()
+        # self.image = pygame.transform.scale(self.image, (int(w),int(h)))
+        self.rect = self.image.get_rect()
+        self.rect.topleft = [x,y]
+        self.pos = [x+32,y+32]
+        self.rot = 0 #random.randint(0, 360)*1
+
+    def Update(self):
+        All.Draw(self)
+        All.Debug(self)
+
+    def changeSkin(self):
+        if self.skin is not "resource/image/lettuceS.png":
+            self.skin = "resources/images/lettuceS.png"
+            self.image = pygame.image.load(self.skin)
+
 class Plate(All):
     processable = False
     # TODO make states for different Foods

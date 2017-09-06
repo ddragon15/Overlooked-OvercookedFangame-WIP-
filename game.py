@@ -12,9 +12,6 @@ import tiles
 import items
 #import sprites
 
-# TODO collision checking on crates doesn't snap
-
-
 if __name__ == "__main__":
 
     # 1 - Initialize the game
@@ -30,9 +27,6 @@ if __name__ == "__main__":
     magic.MTiles = [];
     magic.MItems = [];
 
-    # Functions
-
-
     # 2 - Load images
 
     magic.MTiles.append(tiles.Crate(64,125))
@@ -44,7 +38,7 @@ if __name__ == "__main__":
 
     magic.MItems.append(items.Plate(64,125))
     magic.MItems.append(items.Onion(128,125))
-    magic.MItems.append(items.Tomato(64*5,125))
+    magic.MItems.append(items.Lettuce(64*5,125))
 
 
 
@@ -62,7 +56,7 @@ if __name__ == "__main__":
             o.Update()
 
         # 6.1 - Set player position and rotation
-        magic.player.Update(magic.MTiles)
+        magic.player.Update()
 
         # 6.4 - Draw DebugInfo
         font = pygame.font.Font(None, 24)

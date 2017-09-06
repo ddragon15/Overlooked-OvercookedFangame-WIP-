@@ -28,8 +28,8 @@ class Player(pygame.sprite.Sprite):
         magic.mapScreen.blit(playerrot, playerpos1)
         # pygame.draw.rect(magic.mapScreen, (11,31, 131), self.rect)
 
-    def Collision(self, tiles):
-        for o in tiles:
+    def Collision(self):
+        for o in magic.MTiles:
             boxrect = pygame.Rect(o.image.get_rect())
             boxrect.topleft = [o.pos[0],o.pos[1]]
             if self.rect.colliderect(boxrect):
@@ -80,7 +80,7 @@ class Player(pygame.sprite.Sprite):
             self.infront = (0.75,0.75)
 
         self.rect.topleft = (x-20, y-16) #Collision Rectangle
-        if not self.Collision(self.tiles):
+        if not self.Collision():
             self.playerpos = [x,y]
 
     def getInfront(self):
@@ -91,7 +91,7 @@ class Player(pygame.sprite.Sprite):
     def Grapper(self):
         # TODO add plate decition
 
-        if not self.checkHolding(): # if holding nothing
+        if self.itemHolding == None: # if holding nothing
             # Check if Item is in range
             for i in magic.MItems:
                 if i.checkCollision(self.getInfront()) and not i.isOccupied:
@@ -107,7 +107,7 @@ class Player(pygame.sprite.Sprite):
                     t.process += 1
                     return
 
-        elif(self.checkHolding()): # if holding something
+        elif(self.itemHolding != None): # if holding something
             # Check for Crate
             for t in magic.MTiles:
                 if t.checkCollision(self.getInfront()):
@@ -125,18 +125,8 @@ class Player(pygame.sprite.Sprite):
             self.itemHolding = None
         # Bilanz
         return
-    # TODO redundenz
-    def checkHolding(self):
-        if self.itemHolding:
-            return True
-        else:
-            return False
-    # TODO redundenz
-    def setHolding(self, holder):
-        self.itemHolding = holder
 
-    def Update(self, GTiles):
-        self.tiles = GTiles;
+    def Update(self):
         self.Move()
         if self.itemHolding is not None:
             self.itemHolding.setPos(self.getInfront())

@@ -89,7 +89,7 @@ class cuttingBoard(All):
     process = 0
 
     def itemProcessor(self):
-        if self.itemHolding != None and self.itemHolding.processable: #and not magic.player.checkHolding():
+        if self.itemHolding != None and self.itemHolding.processable: #and magic.player.itemHolding == None:
             self.itemHolding.isOccupied = True
             self.placeCheck = False
             if self.process < 30:
