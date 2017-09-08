@@ -10,7 +10,18 @@ import world
 import player
 import tiles
 import items
-#import sprites
+
+# Future Features to implement:
+# Make some GameScenario File you can choose from
+# Food Requests
+# Send finished Meal
+# Dirty Plate
+# Dishwashing
+# Cooking
+# Cooking Pot and Pan
+# Menu
+# Coop
+# Socket multiplayer
 
 if __name__ == "__main__":
 

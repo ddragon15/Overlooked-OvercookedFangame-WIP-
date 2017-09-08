@@ -121,3 +121,16 @@ class Plate(All):
     def Update(self):
         All.Draw(self)
         All.Debug(self)
+
+
+    # TODO Plate states
+    # If an item sits ontop of the Plate
+        # Loop through Combinations out of all incedience onto the plate plus the new one
+            # Take the first one all incredience work on
+        # Consume the item (delete it)
+        # Change Skin
+
+    # TODO Make a map out of all recipies (maybe in another File)
+        # Which items are needet?
+        # Can it be processed by something?
+        # Which state is the plate in? Choose Skin for swap and return it
